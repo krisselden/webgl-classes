@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>WebGL Class Wrapper</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.3.1/gl-matrix-min.js"></script>
+<script src="../dist/index.min.js"></script>
+<script id="shader-vs" type="x-shader/x-vertex">
+  attribute vec3 pos;
+
+  uniform mat4 modelView;
+  uniform mat4 proj;
+
+  void main(void) {
+    gl_Position = proj * modelView * vec4(pos, 1.0);
+  }
+</script>
+<script id="shader-fs" type="x-shader/x-fragment">
+  void main(void) {
+    gl_FragColor = vec4(0, 1.0, 1.0, 1.0);
+  }
+</script>
+</head>
+<body>
+<canvas id="webgl-canvas" width=640 height=480></canvas>
+<script src="./index.js"></script>
+</body>
+</html>
